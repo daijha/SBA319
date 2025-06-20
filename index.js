@@ -4,8 +4,7 @@ import "dotenv/config";
 const app = express()
 app.use(express.json())// parse to json if using put or post requests 
 const PORT = process.env.PORT;
-//await mongoose.connect(process.env.MONGO_URI);// connects mongoose to mongodb 
-//console.log ('mongoose connected')
+
 
 app.get('/',(req,res)=>{
     res.json("base url reached")
@@ -19,6 +18,8 @@ await mongoose.connect(process.env.MONGO_URI)
 }).catch(()=>{
     console.log(`Connection Failed!`);
 });
+
+
 app.listen(PORT,()=>{
     console.log("server Listening on port", PORT)
 })
