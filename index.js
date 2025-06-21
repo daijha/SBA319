@@ -1,7 +1,11 @@
+//imports
 import express from "express";
 import mongoose from "mongoose"; // imports monogoose
 import "dotenv/config";
 import userRouter from "./routes/userRoutes.js";
+import talentRouter from "./routes/talentRoutes.js";
+import locationRouter from "./routes/locationRoutes.js";
+
 const app = express();
 app.use(express.json()); // parse to json if using put or post requests
 const PORT = process.env.PORT;
@@ -11,6 +15,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/users", userRouter); // connects the userRouter to the main file
+app.use("/talents", talentRouter);
+app.use("/locations", locationRouter);
 
 await mongoose
   .connect(process.env.MONGO_URI) // connects to mongo db

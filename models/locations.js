@@ -11,6 +11,7 @@ const locationSchema = new mongoose.Schema({
   state: {
     type: String,
     required: true,
+    index:true// adds index to state 
   },
   country: {
     type: String,
