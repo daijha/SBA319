@@ -18,4 +18,7 @@ const locationSchema = new mongoose.Schema({
     required: true,
   },
 });
+
+locationSchema.index({userId: 1, city: 1});
+
 export default mongoose.model("Location", locationSchema);
