@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';// imports monogoose 
 import "dotenv/config";
+import userRouter from "./routes/userRoutes.js"
 const app = express()
 app.use(express.json())// parse to json if using put or post requests 
 const PORT = process.env.PORT;
@@ -9,14 +10,18 @@ const PORT = process.env.PORT;
 app.get('/',(req,res)=>{
     res.json("base url reached")
 })
-await mongoose.connect(process.env.MONGO_URI)
+
+app.use('/users', userRouter);// connects the userRouter to the main file 
+
+
+
+
+
+await mongoose.connect(process.env.MONGO_URI)// connects to mongo db 
 .then(()=>{
-    console.log(`Connected to database!`);
-    app.listen(PORT, ()=>{
-        console.log(`Server is running on port: ${PORT}`);
-    });
+    console.log(`Connected to database`);
 }).catch(()=>{
-    console.log(`Connection Failed!`);
+    console.log(`NOT Connected to database `);
 });
 
 
