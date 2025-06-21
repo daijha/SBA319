@@ -1,23 +1,20 @@
-import mongoose from'mongoose'
+import mongoose from "mongoose";
 const locationSchema = new mongoose.Schema({
-userId:{
-    type:String,
+  userId: {
+    type: mongoose.Schema.Types.ObjectId, // learned this is how you use mongo db _id to reference the related datatype
     required: true,
-},
-city:{
+  },
+  city: {
     type: String,
     required: true,
-},
-state:{
+  },
+  state: {
     type: String,
     required: true,
-    
-},
-country:{
+  },
+  country: {
     type: String,
     required: true,
-    
-}
-})
-export default mongoose.model('Location', locationSchema)
-
+  },
+});
+export default mongoose.model("Location", locationSchema);

@@ -1,14 +1,12 @@
-import mongoose from'mongoose'
+import mongoose from "mongoose";
 const talentSchema = new mongoose.Schema({
-userId:{
-    type:String,
+  userId: {
+    type: mongoose.Schema.Types.ObjectId, // matches the _id
     required: true,
-},
-skill:{
+  },
+  skill: {
     type: String,
     required: true,
-    
-}
-})
-export default  mongoose.model('Talent', talentSchema)
-
+  },
+});
+export default mongoose.model("Talent", talentSchema);
