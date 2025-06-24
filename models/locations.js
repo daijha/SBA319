@@ -19,6 +19,6 @@ const locationSchema = new mongoose.Schema({
   },
 });
 
-locationSchema.index({userId: 1, city: 1});
+locationSchema.index({userId: 1, city: 1}); // adds a index to look up by id and city 
 
 export default mongoose.model("Location", locationSchema);
